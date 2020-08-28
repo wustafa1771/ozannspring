@@ -8,18 +8,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import sample.service.WelcomeService;
 
 
-@Controller
+@RestController
 public class WelcomeController {
 
     @Autowired
     protected WelcomeService welcomeService;
 
     @RequestMapping("/hello")
-    public String welcome(Map<String, Object> model) {
-    return welcomeService.den();
+    public String welcome() {
+        System.out.println("in cntroller");
+        String den = welcomeService.den();
+         return den;
 
     }
 
