@@ -1,15 +1,11 @@
 package sample.app.web;
 
-import java.util.Date;
-import java.util.Map;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import sample.service.WelcomeService;
+import sample.service.entities.ConversationRequest;
 
 
 @RestController
@@ -18,12 +14,22 @@ public class WelcomeController {
     @Autowired
     protected WelcomeService welcomeService;
 
+    private double sourceCur=100;
+    private String source = "USD";
+    private String target = "TRY";
+
     @RequestMapping("/hello")
     public String welcome() {
         System.out.println("in cntroller");
-        String den = welcomeService.den();
-         return den;
+        double rate = welcomeService.convertCurrency("TRY","USD");
+         return "your rate is "+rate;
 
+    }
+    @RequestMapping("/conversion")
+    public String convert(){
+        ConversationRequest conversationRequest = new ConversationRequest(source,target,100);
+        double exrate =welcomeService.conversion(conversationRequest);
+        return "success ex rate is -- > "+exrate;
     }
 
 }
