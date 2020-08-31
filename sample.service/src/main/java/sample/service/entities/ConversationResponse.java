@@ -12,19 +12,14 @@ public class ConversationResponse {
 
     private String source;
     private String target;
-    private double sourceAmout;
     private double targetAmount;
-
+    private double sourceAmount;
     public void setSource(String source) {
         this.source = source;
     }
 
     public void setTarget(String target) {
         this.target = target;
-    }
-
-    public void setSourceAmout(double sourceAmout) {
-        this.sourceAmout = sourceAmout;
     }
 
     public void setTargetAmount(double targetAmount) {
@@ -47,8 +42,12 @@ public class ConversationResponse {
         return target;
     }
 
-    public double getSourceAmout() {
-        return sourceAmout;
+    public double getSourceAmount() {
+        return sourceAmount;
+    }
+
+    public void setSourceAmount(double sourceAmount) {
+        this.sourceAmount = sourceAmount;
     }
 
     public double getTargetAmount() {
@@ -58,7 +57,7 @@ public class ConversationResponse {
     public ConversationResponse(ConversationRequest conversationRequest) {
         this.source=conversationRequest.getSource();
         this.target=conversationRequest.getTarget();
-        this.sourceAmout=conversationRequest.getAmout();
+        this.sourceAmount=conversationRequest.getAmount();
     }
     public ConversationResponse (){
 
@@ -69,7 +68,6 @@ public class ConversationResponse {
                 "transationId=" + transationId +
                 ", source='" + source + '\'' +
                 ", target='" + target + '\'' +
-                ", sourceAmout=" + sourceAmout +
                 ", targetAmount=" + targetAmount +
                 '}';
     }

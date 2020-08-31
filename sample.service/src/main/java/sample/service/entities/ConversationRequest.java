@@ -1,18 +1,31 @@
 package sample.service.entities;
 
 public class ConversationRequest {
-    private long id;
 
-    public ConversationRequest(String source, String target, double amout) {
-        this.source = source;
-        this.target = target;
-        this.amout = amout;
-    }
+    private double amount;
+
 
     private String source;
     private String target;
-    private double amout;
 
+
+    public ConversationRequest(String source, String target, double amount) {
+        this.source = source;
+        this.target = target;
+        this.amount = amount;
+    }
+    public ConversationRequest(){
+
+    }
+
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public void setAmount(double amount) {
+        this.amount = amount;
+    }
     public String getSource() {
         return source;
     }
@@ -29,11 +42,7 @@ public class ConversationRequest {
         this.target = target;
     }
 
-    public double getAmout() {
-        return amout;
-    }
 
-    public void setAmout(double amout) {
-        this.amout = amout;
-    }
+
 }
+
